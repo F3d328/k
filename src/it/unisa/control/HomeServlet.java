@@ -19,6 +19,7 @@ import it.unisa.model.ProdottoDao;
  */
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
  
@@ -50,8 +51,14 @@ public class HomeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		if(redirectedPage.equals("META-INF/context.xml") || redirectedPage.equals("WEB-INF/web.xml")){
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + "Home.jsp");
+			dispatcher.forward(request, response);
+		}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);
 		dispatcher.forward(request, response);
+
 	}
 
 
