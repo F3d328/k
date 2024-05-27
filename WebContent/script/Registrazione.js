@@ -29,7 +29,6 @@ function checkData(inputtxt) {
 
 
 
-
 function checkUserName(inputtxt) {
 	var userName = /^[A-Za-z0-9]+$/;
 	if(inputtxt.value.match(userName)) 
